@@ -1,0 +1,25 @@
+import java.util.Scanner;
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
+
+public class Laatikko {
+
+	public static void main(String[] args) {
+		Scanner lukija = new Scanner(System.in);
+		ArrayList<String> kortit = new ArrayList<>(Arrays.asList("A", "B", "C", "D"));
+		int laskin = 0;
+		do {
+			String kortti = kortinValitsin(kortit);
+			System.out.println(kortti);
+			kortit.remove(kortti);
+		} while (kortit.size() > 0);
+		System.out.println(kortit.size());
+	}
+	
+	private static String kortinValitsin(List<String> kortit) {
+		Random r=new Random();
+		return kortit.get(r.nextInt(kortit.size()));
+	}
+}
