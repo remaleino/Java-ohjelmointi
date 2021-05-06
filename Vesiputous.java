@@ -65,6 +65,7 @@ public class Laatikko {
 				}
 				catch(Exception e) {
 					System.out.print("Tämä ei ole boolean arvo, yritä uudelleen.");
+					i--;
 					continue;
 				}
 					
