@@ -88,7 +88,7 @@ public class Opiskelu {
 				System.out.print(siirtoja + " PELIMETODI");	
 			} 
 			
-			else if (ottaaKortin == false && siirtoja == 0) {
+			else if (ottaaKortin == false || siirtoja == 0) {
 				System.out.print("Kiitos pelistä!");
 				return; 
 			}
