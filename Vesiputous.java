@@ -64,7 +64,7 @@ public class Laatikko {
 					ottaaKortin = lukija2.nextBoolean();
 				}
 				catch(Exception e) {
-					System.out.print("Tämä ei ole boolean arvo, yritä uudelleen (true/false) ");
+					System.out.print("Tämä ei ole boolean arvo, yritä uudelleen.");
 					continue;
 				}
 					
@@ -86,7 +86,7 @@ public class Laatikko {
 	public static void lisaaKortit(List<String> kortit) {
 		int[] paka = new int[52];
         String[] maa = {"Pata", "Hertta", "Risti", "Ruutu"};
-        String[] arvo = {"Ässä", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jätka", "Kuningatar", "Kuningas"};
+        String[] arvo = {"Ässä", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jätkä", "Kuningatar", "Kuningas"};
 
         for (int i = 0; i < paka.length; i++) {
             paka[i] = i;
@@ -178,8 +178,3 @@ public class Laatikko {
 		}
 	}
 }
-
-
-
-
-
