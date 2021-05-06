@@ -10,52 +10,40 @@ public class Laatikko {
 
 	public static void main(String[] args) {
 	
-		// pieni intro peliin, säännöt
-		System.out.print("Hei, tämä on Vesiputouspeli!" + "\nKirjoittakaa pelaajien määrä (1-6): ");
-		boolean totuus = true;		
+		System.out.print("Hei, tämä on Vesiputouspeli!" + "\nKirjoittakaa pelaajien määrä (1-6): ");		
 		// tätä voidaan pelata joko yksin tai kaveriporukassa
 		String nimi;
 		String[] nimet;		
 		Scanner lukija = new Scanner(System.in);
-				
+		int määrä;
 		// kysytään pelaajien määrä
-		int määrä = lukija.nextInt();	
-		
-		do {
+		while (true) {
+			määrä = lukija.nextInt();
 			if (määrä < 1 || määrä > 6) {
 				System.out.print("\nValitettavasti kyseinen lukumäärä ei käy, yritä uudestaan: ");
-				määrä = lukija.nextInt(); 
-			} else
+				continue;
+			} else {
 				break;
 			}
-		while (totuus);
+		}	
 		nimet = new String[määrä];	
 		if (määrä == 1) {
 			System.out.print("Kerro nimesi: ");
 			nimi = lukija.next();
-		}	
-		// randomisoidaan pelaajat ja luodaan loogisen järjestyksen
-		else  {
+		} else  {
 			for (int i = 0; i < määrä; i++) {
 				System.out.print("Anna " + (i + 1) + ". pelaajan nimi: ");
 				nimet[i] = lukija.next();
 			}
-			Laatikko.shuffle(nimet);
-				
-			System.out.print("Pelaajien järjestys:\n");
-				
-			for (int i = 0; i < nimet.length; i++) {
-				System.out.print((i + 1) + ". pelaaja " + nimet[i] + "\n");
-						
-			}
 		}
-		
-		// pakassa on 52 korttia, jolloin siirtoja on myös 52
+		// Sekoitetaan pelaajat ja ilmoitetaan järjestys.
+		pelaajienSekoittaminen(nimet);
+		// Luodaan korttien lista.
 		ArrayList<String> kortit = new ArrayList<>();
 		lisaaKortit(kortit);
+		// Rajataan mahdollisia siirtoja 52.
 		int siirtoja = 52;
 		do {
-			
 			for (int i = 0; i < nimet.length; i++) {
 				boolean ottaaKortin = false;
 				try {
@@ -84,6 +72,25 @@ public class Laatikko {
 		System.out.print("Kiitos pelistä!");
 	}
 	
+	public static void pelaajienSekoittaminen(String[] nimet) {
+		Laatikko.shuffle(nimet);
+		System.out.print("Pelaajien järjestys:\n");
+		for (int i = 0; i < nimet.length; i++) {
+			System.out.print((i + 1) + ". pelaaja " + nimet[i] + "\n");		
+		}
+	}
+	
+	public static void shuffle(Object[] array) {
+		
+		int elements = array.length;
+		for (int i = 0; i < elements; i++) {
+			int s = 1 + (int)(Math.random() * (elements - 1));
+				Object temp = array[s];
+				array[s] = array[i];
+				array[i] = temp;
+		}
+	}
+	
 	public static void lisaaKortit(List<String> kortit) {
 		int[] paka = new int[52];
         String[] maa = {"Pata", "Hertta", "Risti", "Ruutu"};
@@ -98,17 +105,6 @@ public class Laatikko {
             String arvoK = arvo[paka[i] % 13];
             kortit.add(arvoK + " " + maaK);
           }
-	}
-	
-	public static void shuffle(Object[] array) {
-		
-		int elements = array.length;
-		for (int i = 0; i < elements; i++) {
-			int s = 1 + (int)(Math.random() * (elements - 1));
-				Object temp = array[s];
-				array[s] = array[i];
-				array[i] = temp;
-		}
 	}
 	
 	private static String kortinValitsin(List<String> kortit) {
