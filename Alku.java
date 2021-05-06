@@ -66,9 +66,31 @@ public class Opiskelu {
 				}	
 		// pakassa on 52 korttia, jolloin siirtoja on myös 52
 		int siirtoja = 52;
+
+		while (true) {
+			
+		for (int i = 0; i < nimet.length; i++) {
+			
+			System.out.print("\nPelaaja " + nimet[i] + " otatko kortin? (true/false) ");
+			boolean ottaaKortin = lukija.nextBoolean();
+			
+			if (ottaaKortin != true && ottaaKortin != false) {
+				System.out.print("Tämä ei ole boolean arvo, yritä uudelleen ");
+				ottaaKortin = lukija.nextBoolean();
+			}
+			else
+			if (ottaaKortin == true) {
+				siirtoja--;
+				// TÄNNE PELIMETODI.
+				System.out.print(siirtoja + " PELIMETODI");	
+			} 
+			
+			else if (ottaaKortin == false) {
+				System.out.print("Kiitos pelistä!");
+				return; 
+			}
+		}
+		}
 		
-		// uusi järjestys korvaa vanhat arvot satunnaisesti
-		System.out.print(nimet[0] + " " + nimet[1] + " " + nimet[2]);
-		int pelaja = 0;
 	}
 }
