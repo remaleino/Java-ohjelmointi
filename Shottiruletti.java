@@ -54,7 +54,6 @@ public class Shottiruletti {
 				System.out.println("Tämä ei ole sopiva syöte, yritä uudestaan.");
 				}
 				
-
 				peli(arvo);
 			}
 		} else if (pelajaMäärä > 1) {
@@ -67,20 +66,29 @@ public class Shottiruletti {
 
 			while (true) {
 				for (int i = 0; i < nimet.length; i++) {
-					System.out.print(nimet[i] + " anna arvo (1-5): ");
+					
 					while (true) {
-						arvo = lukija.nextInt();
-
-						if (arvo > 5) {
-							System.out.print("Luku ei käy, kirjoita uusi luku (1-5): ");
-							continue;
-						} else if (arvo < 1) {
-							System.out.print("Kiitos pelistä!");
-							return;
-						} else if (arvo < 6 && arvo > 0) {
-							peli(arvo);
-							break;
-						}
+						int pArvo;
+						System.out.print(nimet[i] + " anna arvo (1-5): ");
+						Scanner lukija2 = new Scanner(System.in);
+						try {
+							pArvo = lukija2.nextInt();
+							if (pArvo > 5) {
+								System.out.println("Luku ei käy, kirjoita uusi luku.");
+								continue;
+							} else if (pArvo <= 0) {
+								System.out.print("Kiitos pelistä!");
+								return;
+							} else if (pArvo < 6 && pArvo > 0) {
+								arvo = pArvo;
+								break;
+							}	
+							
+						} catch(Exception ex) {
+							System.out.println("Tämä ei ole sopiva syöte, yritä uudestaan.");
+							
+						} 
+						peli(arvo);
 					}
 
 				}
