@@ -15,23 +15,46 @@ public class Shottiruletti {
 		Scanner lukija = new Scanner(System.in);
 
 		System.out.print("Kirjoittakaa pelaajien määrä: ");
-		pelajaMäärä = lukija.nextInt();
+		while (true) {
+			Scanner lukija2 = new Scanner(System.in);
+			try {
+				int pMäärä = lukija2.nextInt();
+				if (pMäärä > 0) {
+					pelajaMäärä = pMäärä;
+					break;
+				}
+			} catch (Exception ex) {
+			}
+			System.out.print("Kyseinen määrä ei käy, kirjoita uudelleen: ");
+		}
 
 		if (pelajaMäärä == 1) {
 			System.out.print("Kerro nimesi: ");
 			nimi = lukija.next();
 			System.out.println("Moi " + nimi + "!");
+			
 			while (true) {
 				System.out.print(nimi + ", anna arvo (1-5): ");
-				arvo = lukija.nextInt();
-				while (arvo > 5) {
-					System.out.print("Luku ei käy, kirjoita uusi luku (1-5): ");
-					arvo = lukija.nextInt();
-					
-				} if (arvo < 1) {
-					System.out.print("Kiitos pelistä!");
-					return;
+				Scanner lukija2 = new Scanner(System.in);
+				try {
+					int pArvo;
+					pArvo = lukija2.nextInt();
+
+					if (pArvo > 0 && pArvo < 6) {
+						arvo = pArvo;
+					}
+					else if (pArvo <= 0) {
+						System.out.print("Kiitos pelistä!");
+						break;
+					} else if (pArvo > 5) {
+						System.out.println("Liian suuri arvo.");
+						
+					}
+				}catch (Exception ex) {	
+				System.out.println("Tämä ei ole sopiva syöte, yritä uudestaan.");
 				}
+				
+
 				peli(arvo);
 			}
 		} else if (pelajaMäärä > 1) {
@@ -47,7 +70,7 @@ public class Shottiruletti {
 					System.out.print(nimet[i] + " anna arvo (1-5): ");
 					while (true) {
 						arvo = lukija.nextInt();
-						
+
 						if (arvo > 5) {
 							System.out.print("Luku ei käy, kirjoita uusi luku (1-5): ");
 							continue;
@@ -59,12 +82,12 @@ public class Shottiruletti {
 							break;
 						}
 					}
-					
+
 				}
 			}
 		}
 	}
-	
+
 	public static void peli(int arvo) {
 		if (arvo == luoti()) {
 			System.out.println("Juo!");
