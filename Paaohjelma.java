@@ -38,18 +38,21 @@ public class Alku {
 	public static void tulostaOhjeet() {
 		Scanner lukija = new Scanner(System.in);
 		int ohjeet = 0;
-		do {
-			System.out.print("Vesiputos-ohjeet(1) Shottiruletti-ohjeet(2)\n");
+		System.out.print("Vesiputos-ohjeet(1) Shottiruletti-ohjeet(2)\n");
+		boolean totuus = false;
+		while (!totuus) {
 			try {
 				ohjeet = lukija.nextInt();
 				if (ohjeet < 1 || ohjeet > 2) {
 					throw new IllegalArgumentException();
+				} else {
+					totuus = true;
 				}
 			} catch (Exception e) {
-				System.out.println("Vaara arvo");
-				continue;
+				System.out.println("Väärä arvo! Syötä uudestaan!");
+				lukija.next();
 			}
-		} while (ohjeet != 1 || ohjeet != 2);
+		}
 		if (ohjeet == 1) {
 			tulostaVesiputous();
 		} else if (ohjeet == 2) {
