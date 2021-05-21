@@ -41,7 +41,6 @@ public class Laatikko {
 		int siirtoja = 52;
 		Vuorot vuoro = new Vuorot(0, nimet);
 		do {
-			//String pNimi = pelaajanVuoro(nimet, siirto.mikaPaikka());
 			boolean ottaaKortin = false;
 			try {
 				Scanner lukija2 = new Scanner(System.in);
@@ -83,11 +82,6 @@ public class Laatikko {
 			return this.lista[this.paikka];
 		}
 	}
-	/*public static String pelaajanVuoro(String[] nimet, int pVuoro) {
-		int a = pVuoro;
-		siirto.seuraava();
-		return nimet[a];
-	}*/
 	public static void pelaajienSekoittaminen(String[] nimet) {
 		Laatikko.shuffle(nimet);
 		System.out.print("Pelaajien järjestys:\n");
