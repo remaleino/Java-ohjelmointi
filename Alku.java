@@ -1,99 +1,46 @@
 package School;
-import java.util.Scanner;
-public class Opiskelu {
-	
-	// satunnainen jono
-	public static void shuffle(Object[] array) {
-		
-		int elements = array.length;
-		
-		for (int i = 0; i < elements; i++) {
-			int s = 1 + (int)(Math.random() * (elements - 1));
-			
-				Object temp = array[s];
-				array[s] = array[i];
-				array[i] = temp;
-		}
-	}
 
-	public static void main(String[] args) {
-	
-		// pieni intro peliin, säännöt
-				System.out.print("Hei, tämä on Vesiputouspeli!"
-						+ "\nKirjoittakaa pelaajien määrä (1-6): ");
-				
-				boolean totuus = true;
-				
-				// tätä voidaan pelata joko yksin tai kaveriporukassa
-				
-				String nimi;
-				String[] nimet;
-				
-				Scanner lukija = new Scanner(System.in);
-				
-				// kysytään pelaajien määrä
-				int määrä = lukija.nextInt();
-				
-			do {
-				if (määrä < 1 || määrä > 6) {
-					System.out.print("\nValitettavasti kyseinen lukumäärä ei käy, yritä uudestaan: ");
-					määrä = lukija.nextInt(); 
-				} else
-					break;
+import java.util.Scanner;
+
+public class peli {
+		public static void main(String[] args) {
+			
+			System.out.print("\n********************************************\n"
+							+ "Tervetuloa juomapelivalikkoon, valitse peli:\n"
+							+ "----------1:\t\tVesiputous----------\n"
+							+ "----------2:\t\tShottiruletti-------\n"
+							+ "----------3: \t\tPeliohjeet---------\n"
+							+ "********************************************\n");
+			System.out.print("*************** peli on : ");
+			int valikko = 0;
+			int ohjeet = 0;
+			Scanner lukija = new Scanner(System.in);
+			valikko = lukija.nextInt();
+			
+			while (valikko > 3 || valikko < 1) {
+				System.out.print("Väärä luku, yritä uudestaan: ");
+				valikko = lukija.nextInt();
+			}  if (valikko == 1) {
+				Vesiputous VesiputousObject = new Vesiputous();
+				VesiputousObject.Vesiputous();
+			} else if (valikko == 2) {
+				Shottiruletti ShottirulettiObject = new Shottiruletti();
+				ShottirulettiObject.ruletti();
+			} else if (valikko == 3) {
+				System.out.print("Vesiputos-ohjeet(1) Shottiruletti-ohjeet(2)\n");
+				ohjeet = lukija.nextInt();
+				if (ohjeet > 2 || ohjeet < 1) {
+					System.out.print("Kyseinen luku ei käy, kokeile uudestaan: ");
+					ohjeet = lukija.nextInt();
 				}
-			while (totuus);
-			nimet = new String[määrä];
-			
-			if (määrä == 1) {
-				System.out.print("Kerro nimesi: ");
-				nimi = lukija.next();
-			}
-			
-			// randomisoidaan pelaajat ja luodaan loogisen järjestyksen
-			else  {
-				for (int i = 0; i < määrä; i++) {
-					System.out.print("Anna " + (i + 1) + ". pelaajan nimi: ");
-					nimet[i] = lukija.next();
-					}
-				Opiskelu.shuffle(nimet);
-				
-				System.out.print("Pelaajien järjestys:\n");
-				
-					for (int i = 0; i < nimet.length; i++) {
-						System.out.print((i + 1) + ". pelaaja " + nimet[i] + "\n");
+				else if (ohjeet == 1) {
+					System.out.print("Tässä on vesiputouspeliohjeet");
+				} else if (ohjeet == 2) {
+					System.out.print("tässä on shottirulettiohjeet");
 					
-					}
-				}	
-		// pakassa on 52 korttia, jolloin siirtoja on myös 52
-		int siirtoja = 52;
-		
-		while (true) {
-			
-		for (int i = 0; i < nimet.length; i++) {
-			boolean ottaaKortin = false;
-		try {
-			Scanner lukija2 = new Scanner(System.in);
-			System.out.print("\nPelaaja " + nimet[i] + " otatko kortin? (true/false) ");
-			ottaaKortin = lukija2.nextBoolean();
-			}
-		catch(Exception e) {
-			
-				System.out.print("Tämä ei ole boolean arvo, yritä uudelleen (true/false) ");
-				continue;
-			}
-			
-			if (ottaaKortin == true) {
-				siirtoja--;
-				// TÄNNE PELIMETODI.
-				System.out.print(siirtoja + " PELIMETODI");	
-			} 
-			
-			else if (ottaaKortin == false || siirtoja == 0) {
-				System.out.print("Kiitos pelistä!");
-				return; 
-			}
-		}
-		}
-		
+				}
+				
+			}	
 	}
 }
+
