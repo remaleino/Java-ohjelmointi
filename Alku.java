@@ -1,46 +1,76 @@
 package School;
-
 import java.util.Scanner;
 
-public class peli {
-		public static void main(String[] args) {
-			
-			System.out.print("\n********************************************\n"
-							+ "Tervetuloa juomapelivalikkoon, valitse peli:\n"
-							+ "----------1:\t\tVesiputous----------\n"
-							+ "----------2:\t\tShottiruletti-------\n"
-							+ "----------3: \t\tPeliohjeet---------\n"
-							+ "********************************************\n");
-			System.out.print("*************** peli on : ");
+public class Alku {
+
+	public static void main(String[] args) {
+		pelit();
+	}
+
+	public static void pelit() {
+		while (true) {
+			tulostaValikko();
 			int valikko = 0;
-			int ohjeet = 0;
 			Scanner lukija = new Scanner(System.in);
-			valikko = lukija.nextInt();
-			
-			while (valikko > 3 || valikko < 1) {
-				System.out.print("Väärä luku, yritä uudestaan: ");
+			try {
 				valikko = lukija.nextInt();
-			}  if (valikko == 1) {
+				if (valikko > 4 || valikko < 1) {
+					throw new IllegalArgumentException();
+				}
+			} catch (Exception e) {
+				System.out.print("Väärä arvo, yritä uudestaan: ");
+				continue;
+			}
+			if (valikko == 1) {
 				Vesiputous VesiputousObject = new Vesiputous();
 				VesiputousObject.Vesiputous();
 			} else if (valikko == 2) {
 				Shottiruletti ShottirulettiObject = new Shottiruletti();
 				ShottirulettiObject.ruletti();
 			} else if (valikko == 3) {
-				System.out.print("Vesiputos-ohjeet(1) Shottiruletti-ohjeet(2)\n");
-				ohjeet = lukija.nextInt();
-				if (ohjeet > 2 || ohjeet < 1) {
-					System.out.print("Kyseinen luku ei käy, kokeile uudestaan: ");
-					ohjeet = lukija.nextInt();
-				}
-				else if (ohjeet == 1) {
-					System.out.print("Tässä on vesiputouspeliohjeet");
-				} else if (ohjeet == 2) {
-					System.out.print("tässä on shottirulettiohjeet");
-					
-				}
-				
-			}	
+				tulostaOhjeet();
+			} else {
+				System.out.println("Mee nukkumaan...");
+				break;
+			}
+		}
 	}
-}
+	public static void tulostaOhjeet() {
+		Scanner lukija = new Scanner(System.in);
+		int ohjeet = 0;
+		do {
+			System.out.print("Vesiputos-ohjeet(1) Shottiruletti-ohjeet(2)\n");
+			try {
+				ohjeet = lukija.nextInt();
+				if (ohjeet < 1 || ohjeet > 2) {
+					throw new IllegalArgumentException();
+				}
+			} catch (Exception e) {
+				System.out.println("Vaara arvo");
+				continue;
+			}
+		} while (ohjeet != 1 || ohjeet != 2);
+		if (ohjeet == 1) {
+			tulostaVesiputous();
+		} else if (ohjeet == 2) {
+			tulostaRuletti();
+		}
+	}
 
+	public static void tulostaVesiputous() {
+		System.out.println("AA");
+	}
+
+	public static void tulostaRuletti() {
+		System.out.println("AA");
+	}
+
+	public static void tulostaValikko() {
+		System.out.print("\n********************************************\n"
+				+ "Tervetuloa juomapelivalikkoon, valitse peli:\n" + "----------1:\t\tVesiputous----------\n"
+				+ "----------2:\t\tShottiruletti-------\n" + "----------3: \t\tPeliohjeet---------\n"
+				+ "----------4: \t\tLopeta---------\n" + "********************************************\n");
+		System.out.print("Valitse: ");
+	}
+
+}
