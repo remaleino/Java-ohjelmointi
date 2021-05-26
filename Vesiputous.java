@@ -113,51 +113,67 @@ public class Vesiputous {
 			return this.lista[this.paikka];
 		}
 	}
-
+	// Metodissa sekoitetaan pelaajien järjestys.
 	public static void pelaajienSekoittaminen(String[] nimet) {
+		// Sekoitetaan pelaajien järjestys shuffle-metodilla.
 		Vesiputous.shuffle(nimet);
+		// Tulostetaan pelaajien järjestys.
 		System.out.print("Pelaajien järjestys:\n");
 		for (int i = 0; i < nimet.length; i++) {
 			System.out.print((i + 1) + ". pelaaja " + nimet[i] + "\n");
 		}
 	}
-
+	// Metodissa "sekoitetaan" alkioita.
 	public static void shuffle(Object[] array) {
-
+		// Elements saa arvokseen saadun listan koon.
 		int elements = array.length;
+		// Saadaan for-lausekeella tarvittavat i:n arvot, jotka määräytyvät listan pituuden mukaan.
 		for (int i = 0; i < elements; i++) {
+			// Saadaan randomi numero listaan koon mukaan.
 			int s = 1 + (int) (Math.random() * (elements - 1));
+			// temp saa listan[s] arvon.
 			Object temp = array[s];
+			// Vaihdetaan lista[s] ja lista[i] alkioita.
 			array[s] = array[i];
 			array[i] = temp;
 		}
 	}
-
+	// Metodissa lisätään kortit-listaan tarvittavat kortit.
 	public static void lisaaKortit(List<String> kortit) {
-		int[] paka = new int[52];
+		// Luodaan tyhjä lista.
+		int[] pakka = new int[52];
+		// Luodaan kaikki mahdolliset maat ja arvot.
 		String[] maa = { "Pata", "Hertta", "Risti", "Ruutu" };
 		String[] arvo = { "Ässä", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jätkä", "Kuningatar", "Kuningas" };
-
-		for (int i = 0; i < paka.length; i++) {
-			paka[i] = i;
+		// Luodaan pakka-listalle numertolliset alkiot.
+		for (int i = 0; i < pakka.length; i++) {
+			pakka[i] = i;
 		}
-
+		// Listänään listaan "kortit" kortit.
 		for (int i = 0; i < 52; i++) {
-			String maaK = maa[paka[i] / 13];
-			String arvoK = arvo[paka[i] % 13];
+			// Jaetaan i aina 13-lla, jolloin maa-listasta vaihdetaan arvoja aina 13 vuoron välein.
+			String maaK = maa[pakka[i] / 13];
+			/* Jakojäänös i / 13, kasvattaa arvo-listaan alkiota aina yhdellä, 
+			ja saavuttuan i = 13 alkaa uudestaan käymään listan arvoja.*/
+			String arvoK = arvo[pakka[i] % 13];
+			//Lisätään kortit-listaan alkio, joka tulee koostumaan kortin arvosta ja maasta.
 			kortit.add(arvoK + " " + maaK);
 		}
 	}
-
+	// Valitaan randomi kortti kortit-listalta.
 	private static String kortinValitsin(List<String> kortit) {
 		Random r = new Random();
 		return kortit.get(r.nextInt(kortit.size()));
 	}
-
+	//Metodissa on listattuna mahdolliset korttien tehtävät.
 	private static void kortinTehtava(String kortti) {
 		System.out.println("Korttisi on " + kortti);
+		/* Luodaan uusi lista, jossa alkioina ovat jaettuna saatu kortin nimi.
+		Kortti jaetaan split-komennolla välilyönistä kahteen osaan*/
 		String[] lista = kortti.split(" ", 2);
+		//Määritetään arvoksi lista-listan ensimmäinen alkio.
 		String arvo = lista[0];
+		//Arvon mukaan määritetään tehtävä.
 		switch (arvo) {
 		case "1":
 			System.out.println("VESIPUTOUS!");
