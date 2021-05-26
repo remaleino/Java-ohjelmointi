@@ -49,41 +49,58 @@ public class Vesiputous {
 		lisaaKortit(kortit);
 		// Rajataan mahdollisia siirtoja 52.
 		int siirtoja = 52;
+		// Olio-luokka Vuorot, jonka tarkoituksena on hoitaa pelaajien haihdon siirtojen aikana. Annetaan luokalle alku paikka ja nimet-lista.
 		Vuorot vuoro = new Vuorot(0, nimet);
+		// do-lauseke mahdollistaa siirtojen rajoittamisen
 		do {
+			// Luodaan boolean arvo, joka hallitsee vuorojen siirtoja
 			boolean ottaaKortin = false;
+			/* try-lauseke on toimivin tapa varautua pelaajien virheellisiin syöttöihin.
+			Tässä mikäli pelaaja syöttää virheellisen arvon (muun kuin boolean-arvon), ohjelma palaa alkuun. Mikäli arvo on oikea siirrytään eteenpäin.
+			*/
 			try {
 				Scanner lukija2 = new Scanner(System.in);
+				//Tässä tärkeintä on olio-kutsu mikaPelaaja, joka tulostaa vuorossa olevan pelaajan nimen
 				System.out.print("\nPelaaja " + vuoro.mikaPelaaja() + " otatko kortin? (true/false) ");
 				ottaaKortin = lukija2.nextBoolean();
 			} catch (Exception e) {
 				System.out.print("Tämä ei ole boolean arvo, yritä uudelleen.");
 				continue;
 			}
-
+			// Jos arvo on tosi, siirytään if-lausekkeeseen.
 			if (ottaaKortin == true) {
+				// Metodi valitsee randomisti kortin kortti-listalta
 				String kortti = kortinValitsin(kortit);
+				// Metodi tulostaa tehtävän kortin mukaan
 				kortinTehtava(kortti);
+				// poistetaan valittu kortti kortti-listalta, jotta se ei toistuisi
 				kortit.remove(kortti);
+				// Olio vaihtaa pelaajien vuoroa
 				vuoro.seuraava();
+				// Vähennetään siirot yhdellä
 				siirtoja--;
+			// jos ottaaKortin arvo pysyy falsena (eli pelaaja syöttää false-arvon) tai kortti-listan koko on
 			} else if (ottaaKortin == false || kortit.size() > 1) {
 				System.out.print("Kiitos pelistä!");
 				return;
 			}
+		// Jos siirtoja on vähemmän kuin 1, ohjelma lopettaa toiminnansa
 		} while (siirtoja > 0);
 		System.out.print("Kiitos pelistä!");
 	}
-
+	// Olio-luokka Vuorot on luotu pelaajien vaihtumista varten
 	public static class Vuorot {
+		// Kaksi yhteistä arvoa: paikka (eli nykyinen vuoro) ja lista (päämetodin nimet-lista).
 		private int paikka;
 		private String[] lista;
-
+		// Liitetään paikka ja alku (lähetetty arvo oli 0) sekä lista ja nimet (lähetetty nimet-lista)
 		public Vuorot(int alku, String[] nimet) {
 			this.paikka = alku;
 			this.lista = nimet;
 		}
-
+		/*seuraava-metodin tarkoituksena on vaihtaa pelaaja. 
+		Mikäli paikka on sama kuin listan pituus (eli maksimi pelaajien määtä), ohjelma nolla paikka-arvon, 
+		eli siirrytään takaisin ensimmäiseen pelaajan*/
 		public void seuraava() {
 			if (this.paikka == (this.lista.length - 1)) {
 				this.paikka = 0;
@@ -91,7 +108,7 @@ public class Vesiputous {
 				this.paikka += 1;
 			}
 		}
-
+		//Metodi lähettää listassa olevan alkion paikan, eli vuorossa olevan pelaajan nimen
 		public String mikaPelaaja() {
 			return this.lista[this.paikka];
 		}
