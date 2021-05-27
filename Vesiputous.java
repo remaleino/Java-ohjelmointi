@@ -7,36 +7,32 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 
 public class Vesiputous {
-
+	
 	public static void Vesiputous() {
-
+		
 		System.out.print("Tervetuloa Vesiputouspeliin!" + "\nKirjoittakaa pelaajien määrä (2-10): ");
-		// tätä voidaan pelata vain kaveriporukassa
+		// Luodaan lista pelaajien nimiä varten.
 		String[] nimet;
 		Scanner lukija = new Scanner(System.in);
 		int määrä;
 		boolean loop = true;
-		// kysytään pelaajien määrä
-
-		// ?????
-
-		
+		/*Luodaan while, jonka sisällä kysytään pelaajien määrää.
+		Jos käyttäjä syöttää väärän arvon, while-silmukka alkaa alusta*/
 		while (true) {
 			Scanner lukija2 = new Scanner(System.in);
 			try {
-			int aMäärä = lukija2.nextInt();
-			if (aMäärä > 2 && aMäärä < 11) {
-				määrä = aMäärä;
-				break;
-			}
-		
+				int aMäärä = lukija2.nextInt();
+				if (aMäärä > 2 && aMäärä < 11) {
+					määrä = aMäärä;
+					break;
+				}
 			} catch (Exception ex) {
 			}
-			System.out.print("\nValitettavasti kyseinen lukumäärä ei käy, yritä uudestaan: ");
-				
-			}
-			
+			System.out.print("\nValitettavasti kyseinen lukumäärä ei käy, yritä uudestaan: ");	
+		}
+		// Assennetaan nimilistalle koko.
 		nimet = new String[määrä];
+		// Syötetään pelaajien nimet.
 		for (int i = 0; i < määrä; i++) {
 			System.out.print("Anna " + (i + 1) + ". pelaajan nimi: ");
 			nimet[i] = lukija.next();
