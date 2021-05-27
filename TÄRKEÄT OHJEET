@@ -28,8 +28,6 @@ echo ä ö å
 javac Paaohjelma.java
 java Paaohjelma
 
-![](/filename%20cmdKoodiRivi.PNG)
-
 Peli aukea, valikko ilmestyy:
 
 1. Vesiputouspeli
@@ -41,3 +39,7 @@ Mikäli aloitat pelin, voit pelin päättää syöttämällä negatiivisen luvun
 Peli päättyy ja sinut heitetään päävalikkoon. 
 Mikäli haluat sulkea pelin, kirjoita numero 4 ja paina ENTER
 Tällöin peli päättyy.
+
+KATSO PÄÄKANSIOSSA OLEVA KUVA (cmdKoodiRivi.PNG)
+
+
