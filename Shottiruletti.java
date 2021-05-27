@@ -1,7 +1,4 @@
-package School;
-
 import java.util.Scanner;
-
 public class Shottiruletti {
 
 	public static void ruletti() {
