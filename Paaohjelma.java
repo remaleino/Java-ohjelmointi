@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Alku {
+public class Paaohjelma {
 	/* Eritetään pelit omakseen metodikseen,
 	jotta niitä olisi helpommin kontrolloida.*/
 	public static void main(String[] args) {
