@@ -16,7 +16,7 @@ Avataan komentokehote.
 Kirjotetaan seuraavat komennot järjestyksessä: 
 cd Desktop/Java/
 javac *.java
-java alku
+java Paaohjelma
 
 
 Peli aukea, valikko ilmestyy:
