@@ -90,11 +90,19 @@ public class Alku {
 	}
 	//Metodissa on vesiputoksen ohjeet.
 	public static void tulostaVesiputous() {
-		System.out.println("AA");
+		System.out.println("Vesiputous-juomapeliin osallistuu 1-10 pelaajaa.\n"
+				+ "Pelissä jokainen pelaaja tulee vuorotelleen saamaan kortin, jossa tulee lukemaan tehtävä.\n"
+				+ "Suoritettuaan tehtävästä, pelaaja ilmoittaa olevansa valmis, jolloin vuoro siirtyy seuraavalle pelaajalle\n"
+				+ "ja pakasta nostetaan seuraava kortti. Peli loppuu, kun kaikki 52 korttia on käyty läpi\n"
+				+ "tai pelaajat päättävät olla jatkamatta pelivuoroa.");
 	}
 	//Metodissa on ruletin ohjeet.
 	public static void tulostaRuletti() {
-		System.out.println("AA");
+		System.out.println("Shottiruletti-juomapeliin osallistuu 1-5 pelaajaa.\n"
+				+ "Pelissä pelaajat tulevat vuorotellen veikkaamaan lukua yhden ja viiden välillä.\n"
+				+ "Mikäli pelaajan ja tietokoneen arpomat luvut ovat samoja, niin pelaaja joutuu juomaan.\n"
+				+ "Pelaajien vuorot vaihtuvat automaattisesti. Mikäli pelaajat haluavat lopettaa pelin,\n"
+				+ "heidän on syötettävä negatiivinen arvo.");
 	}
 	//Metodissa tulostetaan päävalikon ohjeet.
 	public static void tulostaValikko() {
