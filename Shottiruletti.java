@@ -92,7 +92,6 @@ public class Shottiruletti {
 								return;
 							} else if (pArvo < 6 && pArvo > 0) {
 								arvo = pArvo;
-								break;
 							}	
 							
 						} catch(Exception ex) {
