@@ -9,6 +9,7 @@ public class Alku {
 	}
 	//Itse pelit ovat täällä.
 	public static void pelit() {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in, "x-ISO-2022-CN-GB"));
 		/*Pelaajalla tulee olemaan valinta poistua päävalikosta ja lopettaa
 		pelaamisen, mutta muuten pelaaja tulee aina palamaan
 		päävalikkoon pelikertojen jälkeen.*/
