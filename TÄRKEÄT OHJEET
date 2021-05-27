@@ -15,8 +15,10 @@ Avataan windows-haku WIN-näppäimen avulla ja kirjoitetaan hakuun cmd.
 Avataan komentokehote.
 Kirjotetaan seuraavat komennot järjestyksessä: 
 cd Desktop/Java/
-javac *.java
-java alku
+voidaan tarkistaa olemmeko oikeassa kansiossa kirjoittamalla: dir
+Seuraavaksi:
+javac Paaohjelma.java
+java Paaohjelma
 
 
 Peli aukea, valikko ilmestyy:
