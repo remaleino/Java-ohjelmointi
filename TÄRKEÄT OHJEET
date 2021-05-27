@@ -28,6 +28,7 @@ echo ä ö å
 javac Paaohjelma.java
 java Paaohjelma
 
+[]!(/filename cmdKoodiRivi.png)
 
 Peli aukea, valikko ilmestyy:
 
