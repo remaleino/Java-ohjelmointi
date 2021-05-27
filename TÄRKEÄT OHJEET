@@ -5,7 +5,7 @@ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 PROJEKTIN TEKIJÄT: 
 EVGENII SMIRNOV
 RAYMOND GAEV
-
+OLOLOLO
 ---------------------------------------------------------------------
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ---------------------------------------------------------------------
@@ -16,7 +16,7 @@ Avataan komentokehote.
 Kirjotetaan seuraavat komennot järjestyksessä: 
 cd Desktop/Java/
 javac *.java
-java Paaohjelma
+java alku
 
 
 Peli aukea, valikko ilmestyy:
