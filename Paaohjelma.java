@@ -1,4 +1,3 @@
-package School;
 import java.util.Scanner;
 
 public class Alku {
