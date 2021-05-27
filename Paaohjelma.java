@@ -89,7 +89,7 @@ public class Paaohjelma {
 	}
 	//Metodissa on vesiputoksen ohjeet.
 	public static void tulostaVesiputous() {
-		System.out.println("Vesiputous-juomapeliin osallistuu 1-10 pelaajaa.\n"
+		System.out.println("Vesiputous-juomapeliin osallistuu 2-10 pelaajaa.\n"
 				+ "Pelissä jokainen pelaaja tulee vuorotelleen saamaan kortin, jossa tulee lukemaan tehtävä.\n"
 				+ "Suoritettuaan tehtävästä, pelaaja ilmoittaa olevansa valmis, jolloin vuoro siirtyy seuraavalle pelaajalle\n"
 				+ "ja pakasta nostetaan seuraava kortti. Peli loppuu, kun kaikki 52 korttia on käyty läpi\n"
