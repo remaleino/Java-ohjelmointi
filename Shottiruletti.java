@@ -19,7 +19,7 @@ public class Shottiruletti {
 			Scanner lukija2 = new Scanner(System.in);
 			try {
 				int pMäärä = lukija2.nextInt();
-				if (pMäärä > 0) {
+				if (pMäärä > 0 && pMäärä < 6) {
 					pelajaMäärä = pMäärä;
 					break;
 				}
