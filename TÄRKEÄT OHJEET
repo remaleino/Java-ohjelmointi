@@ -17,6 +17,14 @@ Kirjotetaan seuraavat komennot järjestyksessä:
 cd Desktop/Java/
 voidaan tarkistaa olemmeko oikeassa kansiossa kirjoittamalla: dir
 Seuraavaksi:
+ONGELMA JA SEN RATKAISU
+Valitettavasti cmd ei tunnista oletusasetuksilla ä ö å -kirjaimia, mutta ongelman voidaan ratkaistaa seuraavalla tavalla.
+Ennen java-tiedoston avaamista, kirjoita komentokehoteeseen:
+
+chcp 65001
+Muutoksen voidaan tarkistaa kirjoittamalla:
+echo ä ö å
+
 javac Paaohjelma.java
 java Paaohjelma
 
