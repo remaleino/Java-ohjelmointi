@@ -81,7 +81,7 @@ public class Vesiputous {
 			}
 		// Jos siirtoja on vähemmän kuin 1, ohjelma lopettaa toiminnansa
 		} while (siirtoja > 0);
-		System.out.print("Kiitos pelistä!");
+		System.out.print("\nKiitos pelistä!");
 	}
 	// Olio-luokka Vuorot on luotu pelaajien vaihtumista varten
 	public static class Vuorot {
