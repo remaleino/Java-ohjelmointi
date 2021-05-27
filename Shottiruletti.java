@@ -2,16 +2,19 @@ import java.util.Scanner;
 public class Shottiruletti {
 
 	public static void ruletti() {
+		// Alkutervehdys
 		System.out.println();
 		System.out.print("Tervetuloa Shottiruletti-peliin!\n");
 		String[] nimet;
 		String nimi;
 		int pelajaMäärä = 0;
 		int arvo = 0;
-
+		// Kirjoitetaan pelaajien määrä
 		Scanner lukija = new Scanner(System.in);
-
 		System.out.print("Kirjoittakaa pelaajien määrä: ");
+		// Jos kirjoitetaan muu arvo kuin numero, 
+		// ja numero suurempi kuin 1 tai pienempi kuin 6, pelajaMäärä saa pMäärä:n (pseudo määrä) arvon.
+		// Jos ilmestyy virhe, ilmestyy virheen korvaava teksti ja silmukka alkaa alusta.
 		while (true) {
 			Scanner lukija2 = new Scanner(System.in);
 			try {
@@ -24,15 +27,19 @@ public class Shottiruletti {
 			}
 			System.out.print("Kyseinen määrä ei käy, kirjoita uudelleen: ");
 		}
-
+		// Mikäli pelaaja on vain yksi, hän pysty pelaa yksin koneen kanssa :)
 		if (pelajaMäärä == 1) {
 			System.out.print("Kerro nimesi: ");
 			nimi = lukija.next();
 			System.out.println("Moi " + nimi + "!");
-			
+			// Itse peli, annetaan arvo 1-5.
 			while (true) {
 				System.out.print(nimi + ", anna arvo (1-5): ");
 				Scanner lukija2 = new Scanner(System.in);
+				// Kokeillaan syöttää arvoja. Luodaan pseudo arvon (pArvo), 
+				// annetaan pArvo:lle uuden arvon 1 ja 5 välillä.
+				// Mikäli arvo ei vastaa asetetuille rajoituksille, pyydämme käyttäjä syöttää uuden arvon.
+				// Jos arvo on 1 ja 5 välillä, kutsumme pelimetodin.
 				try {
 					int pArvo;
 					pArvo = lukija2.nextInt();
@@ -53,6 +60,9 @@ public class Shottiruletti {
 				
 				peli(arvo);
 			}
+		// Jos pelaajaMäärä on suurempi kuin 1
+		// Kirjoitamme pelaajien nimet for-silmukan avulla
+		// Kutsumme pelaajienSekoittaminen(nimet) metodi
 		} else if (pelajaMäärä > 1) {
 			nimet = new String[pelajaMäärä];
 			for (int i = 0; i < nimet.length; i++) {
@@ -60,7 +70,11 @@ public class Shottiruletti {
 				nimet[i] = lukija.next();
 			}
 			pelaajienSekoittaminen(nimet);
-
+			/* 
+			while-silmukassa tapahtuu pelin kulku.
+			for-silmukka hoitaa pelaajien vaihtaamisen
+			toisessa while-silmukassa kysytään pelaajalta lukua ja varaudutaan väärin syötteisiin (try catch).
+			*/
 			while (true) {
 				for (int i = 0; i < nimet.length; i++) {
 					
@@ -94,6 +108,7 @@ public class Shottiruletti {
 	}
 
 	public static void peli(int arvo) {
+		// metodi peli, mikäli osuma toteutuu, kyseisen metodin kutsutaan
 		if (arvo == luoti()) {
 			System.out.println("Juo!");
 		}
@@ -102,20 +117,29 @@ public class Shottiruletti {
 	}
 
 	public static int luoti() {
+		// luoti metodi palauttaa yhden luvun 1-5 välillä. Luku on satunnainen.
 		int a = 1;
 		int b = 5;
 		return (int) ((Math.random() * (b - a)) + a);
 	}
 
 	public static void pelaajienSekoittaminen(String[] nimet) {
+		// Sekoitetaan listaalla olevat pelaajat. 
 		Shottiruletti.shuffle(nimet);
 	}
-
+	
+	// Metodissa "sekoitetaan" alkioita.
 	public static void shuffle(Object[] array) {
+		
+		// Elements saa arvokseen saadun listan koon		
 		int elements = array.length;
+		// Saadaan for-lausekeella tarvittavat i:n arvot, jotka määräytyvät listan pituuden mukaan.
 		for (int i = 0; i < elements; i++) {
+			// Saadaan randomi numero listaan koon mukaan.
 			int s = 1 + (int) (Math.random() * (elements - 1));
+			// temp saa listan[s] arvon.
 			Object temp = array[s];
+			// Vaihdetaan lista[s] ja lista[i] alkioita.
 			array[s] = array[i];
 			array[i] = temp;
 		}
