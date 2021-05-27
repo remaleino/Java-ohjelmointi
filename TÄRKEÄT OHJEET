@@ -28,7 +28,7 @@ echo ä ö å
 javac Paaohjelma.java
 java Paaohjelma
 
-![](filename%20cmdKoodiRivi.PNG)
+![](/filename%20cmdKoodiRivi.PNG)
 
 Peli aukea, valikko ilmestyy:
 
