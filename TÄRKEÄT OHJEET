@@ -1,0 +1,32 @@
+---------------------------------------------------------------------
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+---------------------------------------------------------------------
+
+PROJEKTIN TEKIJÄT: 
+EVGENII SMIRNOV
+RAYMOND GAEV
+
+---------------------------------------------------------------------
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+---------------------------------------------------------------------
+
+Ladataan kyseinen kansio työpöydälle ja annetaan sille nimeksi Java
+Avataan windows-haku WIN-näppäimen avulla ja kirjoitetaan hakuun cmd.
+Avataan komentokehote.
+Kirjotetaan seuraavat komennot järjestyksessä: 
+cd Desktop/Java/
+javac *.java
+java alku
+
+
+Peli aukea, valikko ilmestyy:
+
+1. Vesiputouspeli
+2. Shottiruletti
+3. Ohjeet
+4. Lopeta
+
+Mikäli aloitat pelin, voit pelin päättää syöttämällä negatiivisen luvun. 
+Peli päättyy ja sinut heitetään päävalikkoon. 
+Mikäli haluat sulkea pelin, kirjoita numero 4 ja paina ENTER
+Tällöin peli päättyy.
